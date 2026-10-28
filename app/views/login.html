@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Connexion — Invitations{% endblock %}
+{% block body %}
+<main class="login">
+  <section class="login-art">
+    <div class="mark" aria-hidden="true"><svg class="ic lg" viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v6h-4M14 18v2"/></svg></div>
+    <h1>Chaque invité, un accès contrôlé.</h1>
+    <p>Scannez, vérifiez et suivez les entrées en direct, même quand le réseau lâche.</p>
+  </section>
+  <form class="login-form" action="/login" method="post" autocomplete="on">
+    <div><h2>Connexion</h2><p class="muted small" style="margin-top:4px">Utilisez le compte fourni par l’administrateur.</p></div>
+    {% if error %}<div class="banner bad" role="alert">{{ error }}</div>{% endif %}
+    <label class="field">Identifiant
+      <input class="input" name="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required autofocus>
+    </label>
+    <label class="field">Mot de passe
+      <input class="input" type="password" name="password" autocomplete="current-password" required>
+    </label>
+    <button class="btn primary block" type="submit">Se connecter</button>
+    <p class="faint tiny">Accès réservé au personnel autorisé.</p>
+  </form>
+</main>
+<script>try{if('serviceWorker' in navigator)navigator.serviceWorker.register('/static/sw.js')}catch(e){}</script>
+{% endblock %}
